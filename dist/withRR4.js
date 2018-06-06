@@ -78,7 +78,6 @@ var withRR4 = function withRR4() {
 
                 var selected = _this.state.selected;
 
-
                 if (itemId === undefined) return;
                 if (itemId !== selected) {
                     history.push('/' + itemId);
