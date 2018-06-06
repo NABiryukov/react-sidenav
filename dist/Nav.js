@@ -221,7 +221,8 @@ var Nav = exports.Nav = function (_Component) {
                     }).map(function (child, idx) {
                         var sicon = findIcon(child.props.children);
                         var stext = findText(child.props.children);
-                        var isItemHighlighted = highlightedId === id + '/' + child.props.id;
+                        var childId = id ? highlightedId === id + '/' + child.props.id : child.props.id;
+                        var isItemHighlighted = highlightedId === childId;
 
                         return _react2.default.createElement(
                             NavItemStyled,
@@ -230,7 +231,7 @@ var Nav = exports.Nav = function (_Component) {
                                 key: idx
                             }, itemProps, {
                                 onClick: function onClick() {
-                                    child.props.onNavClick(), _this2.childClicked(id + '/' + child.props.id);
+                                    child.props.onNavClick(), _this2.childClicked(childId);
                                 },
                                 isHighlighted: isItemHighlighted
                             }),
